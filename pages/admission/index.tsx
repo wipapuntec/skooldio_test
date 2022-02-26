@@ -30,23 +30,36 @@ const useStyles = makeStyles({
   circle: {
     width: "29px",
     height: "29px",
-    margin: "0 8px",
     padding: "1px 9px 0 11px",
     backgroundColor: "#d8d8d8",
+    borderRadius: "50%",
+    color: 'white',
+    marginLeft: '8px'
   },
   activeCircle: {
     width: "29px",
     height: "29px",
-    margin: "0 8px",
+    borderRadius: "50%",
     padding: "1px 9px 0 11px",
-    backgroundColor: "var(--greenish-teal)"
+    backgroundColor: "#2ecc71",
+    color: 'white',
+    marginLeft: '8px'
   },
   triangle: {
     width: '9px',
     height: '14px',
     margin: '18.5px 18.5px 21.5px 2.5px',
     backgroundColor: '#48b6a3'
-  }
+  },
+  button: {
+    width: "150px",
+    height: "35px",
+    margin: "0 0 21px 229px",
+    padding: "7px 8px 7px 20px",
+    borderRadius: "17.5px",
+    border: "solid 1px #ff5a5a",
+    justifyContent: 'center'
+  },
 });
 
 const Admission: FunctionComponent = () => {
@@ -79,13 +92,16 @@ const Admission: FunctionComponent = () => {
             <Typography variant="h2">{data[2]?.name}</Typography>
             <Typography variant="h3">{data[2]?.faculty?.university?.name}</Typography>
           </Box>
+          <Box>
+            <Image src="/icons/heart.png" width="24px" height="21px" className={classes.image} />
+          </Box>
         </Box>
         <Line />
 
         <Grid container>
-          <Grid item>
+          <Grid item my="8px" sx={{ display: 'inline-flex' }}>
             <Typography variant="body2">รอบที่เปิด</Typography>
-            {data[2]?.roundSeats?.map((item, index) => <Box className={item > 0 ? classes.activeCircle : classes.circle} key={index}>{index + 1}</Box>)}
+            {data[2]?.roundSeats?.map((item, index) => <Box sx={{ display: 'inline-flex' }} className={item > 0 ? classes.activeCircle : classes.circle} key={index}>{index + 1}</Box>)}
 
           </Grid>
         </Grid>
@@ -93,8 +109,8 @@ const Admission: FunctionComponent = () => {
           <Grid item>
             <Typography variant="body1">รอบที่ 4 : {data[2]?.score?.scoreType}</Typography>
           </Grid>
-          <Grid item >
-            <Typography variant="body1">แก้ไขคะแนน <Image src="/icons/editScore.png" width="20px" height="20px" className={classes.image} /></Typography>
+          <Grid item className={classes.button} sx={{ display: 'inline-flex' }} >
+            <Typography variant="body1" alignSelf="center">แก้ไขคะแนน <Image src="/icons/editScore.png" width="20px" height="20px" /></Typography>
           </Grid>
         </Grid>
 
@@ -139,10 +155,7 @@ const Admission: FunctionComponent = () => {
         <Box className={classes.title}>
           <Box>
             <User />
-            <Typography variant="caption">{data[2]?.likes}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="caption">คนที่สนใจ</Typography>
+            <Typography variant="body2">{data[2]?.likes} คนที่สนใจ</Typography>
           </Box>
           <Box>
             <Image src="/icons/share.png" width="20px" height="20px" className={classes.image} />
