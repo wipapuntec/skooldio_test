@@ -116,9 +116,9 @@ const Admission: FunctionComponent = () => {
 
         <Grid container>
           <Grid item>
-            <Image src="/icons/star.png" width="20px" height="20px" className={classes.image} />
+            <Image src="/icons/star.png" width="27px" height="35px" className={classes.image} />
           </Grid>
-          <Grid item >
+          <Grid item display="flex" justifyContent="flex-end" >
             <Typography variant="h3">คะแนนของคุณคือ</Typography>
             <Typography variant="body2">{data[2]?.score?.id}</Typography>
           </Grid>
@@ -142,18 +142,18 @@ const Admission: FunctionComponent = () => {
           </Grid>
         </Grid>
         <Line />
-        <Box className={classes.title}>
-          <Box className={classes.triangle} />
 
-          <Box>
-            <Typography variant="caption">ดูสัดส่วนคะแนน</Typography>
-          </Box>
+
+
+        <Box sx={{ display: 'inline-flex' }}>
+          <Box className={classes.triangle} />
+          <Typography variant="caption" alignSelf="center">ดูสัดส่วนคะแนน</Typography>
         </Box>
 
         <Line />
 
         <Box className={classes.title}>
-          <Box>
+          <Box sx={{ display: 'inline-flex' }}>
             <User />
             <Typography variant="body2">{data[2]?.likes} คนที่สนใจ</Typography>
           </Box>
