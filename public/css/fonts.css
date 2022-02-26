@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Prompt;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url(/Introduce-Myself/fonts/Prompt-Light.ttf);
+}
+
+@font-face {
+  font-family: Prompt;
+  font-style: bold;
+  font-display: swap;
+  src: url(/Introduce-Myself/fonts/Prompt-Medium.ttf);
+}
